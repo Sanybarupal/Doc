@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocsApp Learning Platform</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+  </head>
+  <body class="dark-mode">
+    <div id="app">
+      <div id="sidebar-overlay" class="sidebar-overlay"></div>
+      <aside id="sidebar">
+        <div class="sidebar-header">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <h2>DocsApp</h2>
+        </div>
+        <div class="sidebar-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search..." id="sidebar-search-input" />
+        </div>
+        <nav id="sidebar-nav">
+          <!-- Sidebar links will be injected here -->
+        </nav>
+      </aside>
+      
+      <div id="main-wrapper">
+        <header id="top-nav">
+          <div class="nav-left">
+            <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+            <div class="mobile-logo">
+              <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <h2>DocsApp</h2>
+            </div>
+          </div>
+          <div class="nav-right">
+            <div class="nav-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Search</span>
+              <kbd>Ctrl+K</kbd>
+            </div>
+            <button class="icon-btn" aria-label="Add Topic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </header>
+
+        <main id="main-content">
+          <!-- Default Welcome View -->
+          <div id="welcome-view" class="home-scroll-container">
+            <div class="welcome-card hero-section">
+              <h1 class="welcome-title">Welcome to <span class="text-gradient">DocsApp</span></h1>
+              <p class="welcome-subtitle">Your ultimate repository for modern full-stack web development. Search, learn, and master your coding skills.</p>
+              
+              <div class="welcome-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Search topics... (Ctrl+K)" />
+              </div>
+              
+              <button class="primary-btn" id="browse-docs-btn">
+                Browse Docs 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+
+            <!-- New Home Sections -->
+            <section class="home-section">
+              <h2 class="section-title">Explore Categories</h2>
+              <div class="category-grid" id="home-category-grid">
+                <!-- Category cards dynamically injected here -->
+              </div>
+            </section>
+            
+            <section class="home-section">
+              <h2 class="section-title">Featured Topics</h2>
+              <div class="featured-list" id="home-featured-list">
+                <!-- Featured topics dynamically injected here -->
+              </div>
+            </section>
+          </div>
+          
+          <!-- Document Content View -->
+          <div id="doc-view" style="display: none;">
+            <div id="doc-content" class="markdown-body"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
