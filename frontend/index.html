@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DocsApp Learning Platform</title>
+    <title>DocsApp</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Local CSS -->
     <link rel="stylesheet" href="/assets/css/index.css" />
   </head>
   <body class="dark-mode">
@@ -92,6 +97,23 @@
           <!-- Document Content View -->
           <div id="doc-view" style="display: none;">
             <div id="doc-content" class="markdown-body"></div>
+            
+            <div class="doc-navigation">
+              <button id="prev-doc-btn" class="nav-btn hidden">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <div class="nav-btn-text">
+                  <span>Previous</span>
+                  <strong id="prev-doc-title">Topic</strong>
+                </div>
+              </button>
+              <button id="next-doc-btn" class="nav-btn hidden">
+                <div class="nav-btn-text text-right">
+                  <span>Next</span>
+                  <strong id="next-doc-title">Topic</strong>
+                </div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
           </div>
         </main>
       </div>

@@ -49,6 +49,12 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const sidebarOverlay = document.getElementById('sidebar-overlay');
 const sidebarSearchInput = document.getElementById('sidebar-search-input');
 
+// Pagination Elements
+const prevDocBtn = document.getElementById('prev-doc-btn');
+const nextDocBtn = document.getElementById('next-doc-btn');
+const prevDocTitle = document.getElementById('prev-doc-title');
+const nextDocTitle = document.getElementById('next-doc-title');
+
 // Theme Management
 const initTheme = () => {
     const savedTheme = localStorage.getItem('theme');
@@ -205,6 +211,30 @@ function loadContent(path) {
                 categoryItems.previousElementSibling.classList.remove('collapsed');
             }
         }
+        
+        // Update pagination buttons
+        const currentIndex = docsList.findIndex(d => d.path === path);
+        
+        if (currentIndex > 0) {
+            const prevDoc = docsList[currentIndex - 1];
+            prevDocBtn.classList.remove('hidden');
+            prevDocTitle.textContent = prevDoc.title;
+            prevDocBtn.onclick = () => loadContent(prevDoc.path);
+        } else {
+            prevDocBtn.classList.add('hidden');
+        }
+
+        if (currentIndex < docsList.length - 1 && currentIndex !== -1) {
+            const nextDoc = docsList[currentIndex + 1];
+            nextDocBtn.classList.remove('hidden');
+            nextDocTitle.textContent = nextDoc.title;
+            nextDocBtn.onclick = () => loadContent(nextDoc.path);
+        } else {
+            nextDocBtn.classList.add('hidden');
+        }
+        
+        // Scroll to top
+        document.getElementById('main-content').scrollTop = 0;
     }
 }
 

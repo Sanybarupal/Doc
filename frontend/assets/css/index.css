@@ -13,6 +13,8 @@
 
   --icon-sun: block;
   --icon-moon: none;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', system-ui, sans-serif;
 }
 
 body.dark-mode {
@@ -38,12 +40,21 @@ body.dark-mode {
 
 body {
   margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   overflow: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .welcome-title, .category-header {
+  font-family: var(--font-heading);
 }
 
 /* Custom Scrollbar */
@@ -646,6 +657,83 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/* Document Navigation */
+.doc-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 48%;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.nav-btn:hover {
+  border-color: var(--primary-color);
+  background-color: var(--sidebar-hover);
+}
+
+.nav-btn.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.nav-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+}
+
+.nav-btn-text.text-right {
+  text-align: right;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.nav-btn-text span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.nav-btn-text strong {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.nav-btn svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.nav-btn:hover svg {
+  color: var(--primary-color);
+}
+
 #top-nav {
   justify-content: space-between;
   /* To push nav-left and nav-right apart */
@@ -721,5 +809,13 @@ body {
 
   .welcome-card {
     padding: 2rem;
+  }
+
+  .doc-navigation {
+    flex-direction: column;
+  }
+  
+  .nav-btn {
+    max-width: 100%;
   }
 }
