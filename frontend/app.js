@@ -48,6 +48,7 @@ const browseDocsBtn = document.getElementById('browse-docs-btn');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const sidebarOverlay = document.getElementById('sidebar-overlay');
 const sidebarSearchInput = document.getElementById('sidebar-search-input');
+const topSearchBtn = document.getElementById('top-search-btn');
 
 // Pagination Elements
 const prevDocBtn = document.getElementById('prev-doc-btn');
@@ -119,6 +120,32 @@ function initSearch() {
                 group.style.display = 'none';
             }
         });
+    });
+}
+
+function initGlobalSearch() {
+    const focusSearch = () => {
+        // If mobile, open sidebar
+        if (window.innerWidth <= 768 && sidebarEl && sidebarOverlay) {
+            sidebarEl.classList.add('show-sidebar');
+            sidebarOverlay.classList.add('show-overlay');
+        }
+        // Focus the input
+        if (sidebarSearchInput) {
+            sidebarSearchInput.focus();
+        }
+    };
+
+    if (topSearchBtn) {
+        topSearchBtn.addEventListener('click', focusSearch);
+    }
+
+    // Keyboard shortcut Ctrl+K or Cmd+K
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            focusSearch();
+        }
     });
 }
 
@@ -305,6 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initMobileMenu();
     initSearch();
+    initGlobalSearch();
     renderSidebar();
     renderHomeSections();
     
